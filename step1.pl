@@ -60,8 +60,14 @@ enfant_de(paul,eve).
 enfant_de(valerie,loic).
 enfant_de(valerie,eve).
 
-% beaupere_de(marc,lisa).
+beaupere_de(X,Y) :- homme(X),mari_de(Y,Z),enfant_de(Z,X).
+beaupere_de(X,Y) :- homme(X),femme_de(Y,Z),enfant_de(Z,X).
 
-% bellemere_de(anne,lisa).
 
-% ancetre_de().
+bellemere_de(X,Y) :- femme(X),mari_de(Y,Z),enfant_de(Z,X).
+bellemere_de(X,Y) :- femme(X),femme_de(Y,Z),enfant_de(Z,X).
+
+% Pas suffisant :
+
+ancetre_de(X,Y) :- enfant_de(Y,X).
+ancetre_de(X,Y) :- enfant_de(Z,X),ancetre_de(Z,Y).
