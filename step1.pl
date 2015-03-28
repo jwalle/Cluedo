@@ -67,7 +67,5 @@ beaupere_de(X,Y) :- homme(X),femme_de(Y,Z),enfant_de(Z,X).
 bellemere_de(X,Y) :- femme(X),mari_de(Y,Z),enfant_de(Z,X).
 bellemere_de(X,Y) :- femme(X),femme_de(Y,Z),enfant_de(Z,X).
 
-% Pas suffisant :
-
 ancetre_de(X,Y) :- enfant_de(Y,X).
 ancetre_de(X,Y) :- enfant_de(Z,X),ancetre_de(Z,Y).
